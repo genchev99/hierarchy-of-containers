@@ -1,0 +1,14 @@
+//
+// Created by bg-tv on 3.12.19 г..
+//
+
+#ifndef HIERARCHY_OF_CONTAINERS_MASTERCONTAINER_H
+#define HIERARCHY_OF_CONTAINERS_MASTERCONTAINER_H
+
+
+class MasterContainer {
+
+};
+
+
+#endif //HIERARCHY_OF_CONTAINERS_MASTERCONTAINER_H
