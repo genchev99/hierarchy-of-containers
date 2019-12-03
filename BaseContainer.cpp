@@ -6,15 +6,15 @@
 
 BaseContainer::BaseContainer(): head(nullptr), tail(nullptr) {}
 
-void BaseContainer::insertEnd(int value) {
-    if (head == nullptr) {
-        head = new Node(value);
-        tail = head;
-    } else {
-        tail->setNext(new Node(value, tail, nullptr));
-        tail = tail->getNext();
-    }
-}
+//void BaseContainer::insertEnd(int value) {
+//    if (head == nullptr) {
+//        head = new Node(value);
+//        tail = head;
+//    } else {
+//        tail->setNext(new Node(value, tail, nullptr));
+//        tail = tail->getNext();
+//    }
+//}
 
 void BaseContainer::print() {
     headToTail();

@@ -9,11 +9,13 @@
 #include "Node.h"
 
 class BaseContainer {
+protected:
     Node* head;
     Node* tail;
 public:
     BaseContainer();
-    void insertEnd(int value);
+    virtual void insert(int value) = 0;
+    virtual int pop() = 0;
 
     /* Printing methods */
     void print();
