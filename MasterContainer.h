@@ -6,8 +6,13 @@
 #define HIERARCHY_OF_CONTAINERS_MASTERCONTAINER_H
 
 
-class MasterContainer {
+#include "MasterNode.h"
 
+class MasterContainer {
+    MasterNode* _head;
+public:
+    MasterContainer();
+    void addContainer(BaseContainer* container = nullptr);
 };
 
 
