@@ -5,7 +5,7 @@
 #ifndef HIERARCHY_OF_CONTAINERS_BASECONTAINER_H
 #define HIERARCHY_OF_CONTAINERS_BASECONTAINER_H
 
-
+#include <iostream>
 #include "Node.h"
 
 class BaseContainer {
@@ -14,7 +14,11 @@ class BaseContainer {
 public:
     BaseContainer();
     void insertEnd(int value);
-    void print
+
+    /* Printing methods */
+    void print();
+    void headToTail();
+    void tailToHead();
 };
 
 

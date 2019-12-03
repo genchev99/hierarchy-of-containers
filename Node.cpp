@@ -4,7 +4,7 @@
 
 #include "Node.h"
 
-Node::Node(int value, Node *next, Node *before): _value(value), _next(next), _prev(before) {}
+Node::Node(int value, Node *prev, Node *next) :_value(value), _prev(prev), _next(next) {}
 
 int Node::getValue() const {
     return _value;
