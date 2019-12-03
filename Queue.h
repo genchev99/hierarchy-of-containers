@@ -5,6 +5,7 @@
 #ifndef HIERARCHY_OF_CONTAINERS_QUEUE_H
 #define HIERARCHY_OF_CONTAINERS_QUEUE_H
 
+#include <iostream>
 
 #include "BaseContainer.h"
 

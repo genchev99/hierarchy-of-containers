@@ -7,10 +7,14 @@
 void Queue::insert(int value) {
     if (head == nullptr) {
         head = new Node(value);
-        tail = head;
     } else {
-        tail->setNext(new Node(value, tail, nullptr));
-        tail = tail->getNext();
+        /* Navigates to the end of the queue and adds the element */
+        Node* crr = head;
+        while (crr->getNext() != nullptr) {
+            crr = crr->getNext();
+        }
+
+        crr->setNext(new Node(value));
     }
 }
 
@@ -21,6 +25,9 @@ int Queue::pop() {
         result = head->getValue();
         /* Todo delete old head */
         head = head->getNext();
+    } else {
+        /* Todo rework to throw an exception */
+        std::cerr << "The structure is empty!" << std::endl;
     }
 
     return result;

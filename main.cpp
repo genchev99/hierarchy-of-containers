@@ -5,16 +5,16 @@
 
 int main() {
 
-    BaseContainer* baseContainer = new Stack();
+    BaseContainer* baseContainer = new Queue();
     baseContainer->insert(1);
     baseContainer->insert(2);
     baseContainer->insert(3);
 
-    baseContainer->tailToHead();
+    baseContainer->print();
 
     std::cout << baseContainer->pop() << std::endl;
 
-    baseContainer-> tailToHead();
+    baseContainer-> print();
 
     return 0;
 }

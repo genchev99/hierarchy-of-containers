@@ -5,21 +5,19 @@
 #include "Stack.h"
 
 void Stack::insert(int value) {
-    if (tail == nullptr) {
-        tail = new Node(value);
-    } else {
-        tail->setNext(new Node(value, tail, nullptr));
-        tail = tail->getNext();
-    }
+    head = new Node(value, nullptr, head);
 }
 
 int Stack::pop() {
     int result = 0;
 
-    if (tail != nullptr) {
-        result = tail->getValue();
-        /* Todo delete old head */
-        tail = tail->getPrev();
+    if (head != nullptr) {
+        result = head->getValue();
+        /* Todo delete the old head */
+        head = head->getNext();
+    } else {
+        /* Todo rework to throw an exception */
+        std::cerr << "The structure is empty!" << std::endl;
     }
 
     return result;

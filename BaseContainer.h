@@ -11,7 +11,6 @@
 class BaseContainer {
 protected:
     Node* head;
-    Node* tail;
 public:
     BaseContainer();
     virtual void insert(int value) = 0;
@@ -19,8 +18,6 @@ public:
 
     /* Printing methods */
     void print();
-    void headToTail();
-    void tailToHead();
 };
 
 
