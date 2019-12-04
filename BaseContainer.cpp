@@ -40,3 +40,15 @@ bool BaseContainer::member(int const &x) {
 
     return false;
 }
+
+size_t BaseContainer::getSize() {
+    size_t counter = 0;
+    Node* crr = head;
+
+    while (crr != nullptr) {
+        counter++;
+        crr = crr->getNext();
+    }
+
+    return counter;
+}

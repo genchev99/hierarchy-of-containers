@@ -18,6 +18,8 @@ public:
 
     bool member(int const& x);
 
+    size_t getSize();
+
     /* Printing methods */
     void print();
 };
