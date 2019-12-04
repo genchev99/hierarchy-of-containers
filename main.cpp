@@ -29,19 +29,9 @@ std::vector<std::string> split(const std::string & s, char c) {
     return split;
 }
 
+/* Todo add destructors to all of the classes which will fix the memory leaks */
+
 int main() {
-
-//    BaseContainer* baseContainer = new Queue();
-//    baseContainer->insert(1);
-//    baseContainer->insert(2);
-//    baseContainer->insert(3);
-//
-//    baseContainer->print();
-//
-//    std::cout << baseContainer->pop() << std::endl;
-//
-//    baseContainer-> print();
-
     MasterContainer* masterContainer = new MasterContainer();
 
     /* Reading the file line by line and splitting it into string vector */
