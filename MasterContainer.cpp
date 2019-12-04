@@ -38,7 +38,7 @@ bool MasterContainer::contains(int x) {
 }
 
 void MasterContainer::addElementToLowestContainer(int x) {
-
+    getLowestContainer()->getContainer()->insert(x);
 }
 
 MasterNode *MasterContainer::getLowestContainer() {
