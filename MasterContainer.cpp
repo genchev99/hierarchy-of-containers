@@ -23,3 +23,17 @@ void MasterContainer::print() {
     }
 }
 
+bool MasterContainer::contains(int x) {
+    MasterNode* crr = _head;
+
+    while (crr != nullptr) {
+        if (crr->getContainer()->member(x)) {
+            return true;
+        }
+
+        crr = crr->getNext();
+    }
+
+    return false;
+}
+

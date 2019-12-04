@@ -12,6 +12,9 @@ class MasterContainer {
     MasterNode* _head;
 public:
     MasterContainer();
+
+    bool contains(int x);
+
     void addContainer(BaseContainer* container = nullptr);
     void print();
 };
