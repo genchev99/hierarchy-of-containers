@@ -6,7 +6,9 @@
 
 void List::insert(int value) {
     head = new Node(value, nullptr, head);
-    head->getNext()->setPrev(head);
+    if (head->getNext() != nullptr) {
+        head->getNext()->setPrev(head);
+    }
 }
 
 int List::pop() {

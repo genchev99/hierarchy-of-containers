@@ -11,7 +11,6 @@
 class List: public BaseContainer {
 public:
     void insert(int value) override;
-
     int pop() override;
 };
 
