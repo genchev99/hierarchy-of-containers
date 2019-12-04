@@ -37,3 +37,28 @@ bool MasterContainer::contains(int x) {
     return false;
 }
 
+void MasterContainer::addElementToLowestContainer(int x) {
+
+}
+
+MasterNode *MasterContainer::getLowestContainer() {
+    if (_head == nullptr) {
+        return nullptr;
+    }
+
+    MasterNode* crr = _head;
+    MasterNode* res = _head;
+    size_t lowestSize = _head->getContainer()->getSize();
+
+    while (crr != nullptr) {
+        if (crr->getContainer()->getSize() < lowestSize) {
+            res = crr;
+            lowestSize = crr->getContainer()->getSize();
+        }
+
+        crr = crr->getNext();
+    }
+
+    return res;
+}
+

@@ -13,9 +13,12 @@ class MasterContainer {
 public:
     MasterContainer();
 
+    MasterNode* getLowestContainer();
+
     bool contains(int x);
 
     void addContainer(BaseContainer* container = nullptr);
+    void addElementToLowestContainer(int x);
     void print();
 };
 
