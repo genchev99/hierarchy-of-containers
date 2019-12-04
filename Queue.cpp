@@ -5,11 +5,11 @@
 #include "Queue.h"
 
 void Queue::insert(int value) {
-    if (head == nullptr) {
-        head = new Node(value);
+    if (_head == nullptr) {
+        _head = new Node(value);
     } else {
         /* Navigates to the end of the queue and adds the element */
-        Node* crr = head;
+        Node* crr = _head;
         while (crr->getNext() != nullptr) {
             crr = crr->getNext();
         }
@@ -21,10 +21,10 @@ void Queue::insert(int value) {
 int Queue::pop() {
     int result = 0;
 
-    if (head != nullptr) {
-        result = head->getValue();
-        /* Todo delete old head */
-        head = head->getNext();
+    if (_head != nullptr) {
+        result = _head->getValue();
+        /* Todo delete old _head */
+        _head = _head->getNext();
     } else {
         /* Todo rework to throw an exception */
         std::cerr << "The structure is empty!" << std::endl;

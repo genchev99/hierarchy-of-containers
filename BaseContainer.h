@@ -5,18 +5,21 @@
 #ifndef HIERARCHY_OF_CONTAINERS_BASECONTAINER_H
 #define HIERARCHY_OF_CONTAINERS_BASECONTAINER_H
 
+using Condition = bool (*)(int const&);
+
 #include <iostream>
 #include "Node.h"
 
 class BaseContainer {
 protected:
-    Node* head;
+    Node* _head;
 public:
     BaseContainer();
     virtual void insert(int value) = 0;
     virtual int pop() = 0;
 
     bool member(int const& x);
+    bool match(Condition condition);
 
     size_t getSize();
 

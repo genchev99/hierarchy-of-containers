@@ -4,20 +4,10 @@
 
 #include "BaseContainer.h"
 
-BaseContainer::BaseContainer(): head(nullptr) {}
-
-//void BaseContainer::insertEnd(int value) {
-//    if (head == nullptr) {
-//        head = new Node(value);
-//        tail = head;
-//    } else {
-//        tail->setNext(new Node(value, tail, nullptr));
-//        tail = tail->getNext();
-//    }
-//}
+BaseContainer::BaseContainer(): _head(nullptr) {}
 
 void BaseContainer::print() {
-    Node* crr = head;
+    Node* crr = _head;
 
     while (crr != nullptr) {
         std::cout << crr->getValue() << ", ";
@@ -28,7 +18,7 @@ void BaseContainer::print() {
 }
 
 bool BaseContainer::member(int const &x) {
-    Node* crr = head;
+    Node* crr = _head;
 
     while (crr != nullptr) {
         if (crr->getValue() == x) {
@@ -43,7 +33,7 @@ bool BaseContainer::member(int const &x) {
 
 size_t BaseContainer::getSize() {
     size_t counter = 0;
-    Node* crr = head;
+    Node* crr = _head;
 
     while (crr != nullptr) {
         counter++;
@@ -52,3 +42,18 @@ size_t BaseContainer::getSize() {
 
     return counter;
 }
+
+bool BaseContainer::match(Condition condition) {
+    Node* crr = _head;
+
+    while (crr != nullptr) {
+        if (condition(crr->getValue())) {
+            return true;
+        }
+
+        crr = crr->getNext();
+    }
+
+    return false;
+}
+

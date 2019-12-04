@@ -5,16 +5,16 @@
 #include "Stack.h"
 
 void Stack::insert(int value) {
-    head = new Node(value, nullptr, head);
+    _head = new Node(value, nullptr, _head);
 }
 
 int Stack::pop() {
     int result = 0;
 
-    if (head != nullptr) {
-        result = head->getValue();
-        /* Todo delete the old head */
-        head = head->getNext();
+    if (_head != nullptr) {
+        result = _head->getValue();
+        /* Todo delete the old _head */
+        _head = _head->getNext();
     } else {
         /* Todo rework to throw an exception */
         std::cerr << "The structure is empty!" << std::endl;
