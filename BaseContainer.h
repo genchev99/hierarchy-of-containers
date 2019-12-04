@@ -16,6 +16,8 @@ public:
     virtual void insert(int value) = 0;
     virtual int pop() = 0;
 
+    bool member(int const& x);
+
     /* Printing methods */
     void print();
 };

@@ -26,3 +26,17 @@ void BaseContainer::print() {
 
     std::cout << std::endl;
 }
+
+bool BaseContainer::member(int const &x) {
+    Node* crr = head;
+
+    while (crr != nullptr) {
+        if (crr->getValue() == x) {
+            return true;
+        }
+
+        crr = crr->getNext();
+    }
+
+    return false;
+}
