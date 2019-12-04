@@ -1,20 +1,92 @@
 #include <iostream>
+#include <vector>
+#include <string>
+#include <fstream>
+
 #include "BaseContainer.h"
 #include "Queue.h"
 #include "Stack.h"
+#include "MasterContainer.h"
+#include "List.h"
+
+std::vector<std::string> split(const std::string & s, char c) {
+    std::vector<std::string> split;
+
+    std::string word;
+    for (char ch : s) {
+        if ((ch == c) && (!word.empty())) {
+            split.push_back(word);
+            word.clear();
+        } else {
+            word += ch;
+        }
+    }
+
+    if (!word.empty()) {
+        split.push_back(word);
+    }
+
+    return split;
+}
 
 int main() {
 
-    BaseContainer* baseContainer = new Queue();
-    baseContainer->insert(1);
-    baseContainer->insert(2);
-    baseContainer->insert(3);
+//    BaseContainer* baseContainer = new Queue();
+//    baseContainer->insert(1);
+//    baseContainer->insert(2);
+//    baseContainer->insert(3);
+//
+//    baseContainer->print();
+//
+//    std::cout << baseContainer->pop() << std::endl;
+//
+//    baseContainer-> print();
 
-    baseContainer->print();
+    MasterContainer* masterContainer = new MasterContainer();
 
-    std::cout << baseContainer->pop() << std::endl;
+    /* Reading the file line by line and splitting it into string vector */
+    std::ifstream in("/home/pr3dat0r/FMI_Projects/sdp/hierarchy-of-containers/containers.txt");
+    std::vector<std::vector<std::string>> rawContainers;
 
-    baseContainer-> print();
+    if (in) {
+        std::string line;
+        std::vector <std::string> vec;
+        while (getline(in, line)) {
+            for (const std::string & str : split(line, ' ')) {
+                vec.push_back(str);
+            }
+
+            rawContainers.push_back(vec);
+            vec.clear();
+        }
+
+        in.close();
+    } else {
+        std::cerr << "There is a problem with the given file" << std::endl;
+    }
+
+    for (std::vector<std::string> rawContainer : rawContainers) {
+        std::string containerType = rawContainer.at(0);
+        BaseContainer* baseContainer = nullptr;
+
+        if (containerType == "s") {
+            baseContainer = new Stack();
+        } else if (containerType == "q") {
+            baseContainer = new Queue();
+        } else {
+            baseContainer = new List();
+        }
+
+        for (int i = 1; i < rawContainer.size(); ++i) {
+            baseContainer->insert(std::stoi(rawContainer.at(i)));
+        }
+
+        masterContainer->addContainer(baseContainer);
+    }
+
+    masterContainer->print();
+
+//    delete(masterContainer);
 
     return 0;
 }

@@ -13,6 +13,7 @@ class MasterContainer {
 public:
     MasterContainer();
     void addContainer(BaseContainer* container = nullptr);
+    void print();
 };
 
 
