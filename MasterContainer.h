@@ -5,6 +5,8 @@
 #ifndef HIERARCHY_OF_CONTAINERS_MASTERCONTAINER_H
 #define HIERARCHY_OF_CONTAINERS_MASTERCONTAINER_H
 
+/* Todo make it to use template instead of integers */
+using Condition = bool (*)(int);
 
 #include "MasterNode.h"
 
@@ -16,6 +18,7 @@ public:
     MasterNode* getLowestContainer();
 
     bool contains(int x);
+    bool matchAny(Condition condition);
 
     void addContainer(BaseContainer* container = nullptr);
     void addElementToLowestContainer(int x);

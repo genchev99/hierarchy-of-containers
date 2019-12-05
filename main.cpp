@@ -73,10 +73,11 @@ int main() {
 
         masterContainer->addContainer(baseContainer);
     }
-//    masterContainer->addElementToLowestContainer(111);
-//    masterContainer->addElementToLowestContainer(222);
-//    masterContainer->addElementToLowestContainer(333);
-//    std::cout << "Contains 333 " << masterContainer->contains(333) << std::endl;
+    masterContainer->addElementToLowestContainer(111);
+    masterContainer->addElementToLowestContainer(222);
+    masterContainer->addElementToLowestContainer(333);
+    std::cout << "Contains 333 " << masterContainer->contains(333) << std::endl;
+    std::cout << "Contains 333 " << masterContainer->matchAny([](const int x) -> bool { return x == 3333; }) << std::endl;
     masterContainer->print();
 
 //    delete(masterContainer);

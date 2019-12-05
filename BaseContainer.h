@@ -5,7 +5,9 @@
 #ifndef HIERARCHY_OF_CONTAINERS_BASECONTAINER_H
 #define HIERARCHY_OF_CONTAINERS_BASECONTAINER_H
 
-using Condition = bool (*)(int const&);
+
+/* Todo make it to use template instead of integers */
+using Condition = bool (*)(int);
 
 #include <iostream>
 #include "Node.h"

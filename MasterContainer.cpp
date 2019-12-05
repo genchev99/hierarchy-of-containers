@@ -62,3 +62,17 @@ MasterNode *MasterContainer::getLowestContainer() {
     return res;
 }
 
+bool MasterContainer::matchAny(Condition condition) {
+    MasterNode* crr = _head;
+
+    while (crr != nullptr) {
+        if (crr->getContainer()->match(condition)) {
+            return true;
+        }
+
+        crr = crr->getNext();
+    }
+
+    return false;
+}
+
