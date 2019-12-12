@@ -4,28 +4,37 @@
 
 #include "Node.h"
 
-Node::Node(int value, Node *prev, Node *next) :_value(value), _prev(prev), _next(next) {}
 
-int Node::getValue() const {
+template<typename T>
+Node<T>::Node(T value, Node *prev, Node *next): _value(value), _prev(prev), _next(next) {}
+
+template<typename T>
+T Node<T>::getValue() const {
     return _value;
 }
 
-void Node::setValue(int value) {
-    Node::_value = value;
+template<typename T>
+void Node<T>::setValue(T value) {
+    _value = value;
 }
 
-Node *Node::getNext() const {
+template<typename T>
+Node<T> *Node<T>::getNext() const {
     return _next;
 }
 
-void Node::setNext(Node *next) {
-    Node::_next = next;
+template<typename T>
+void Node<T>::setNext(Node *next) {
+    _next = next;
 }
 
-Node *Node::getPrev() const {
+template<typename T>
+Node<T> *Node<T>::getPrev() const {
     return _prev;
 }
 
-void Node::setPrev(Node *before) {
-    Node::_prev = before;
+template<typename T>
+void Node<T>::setPrev(Node *prev) {
+    _prev = prev;
 }
+

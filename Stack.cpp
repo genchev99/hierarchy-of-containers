@@ -5,7 +5,7 @@
 #include "Stack.h"
 
 void Stack::insert(int value) {
-    _head = new Node(value, nullptr, _head);
+    _head = new Node<int>(value, nullptr, _head);
 }
 
 int Stack::pop() {

@@ -7,7 +7,7 @@
 BaseContainer::BaseContainer(): _head(nullptr) {}
 
 void BaseContainer::print() {
-    Node* crr = _head;
+    Node<int>* crr = _head;
 
     while (crr != nullptr) {
         std::cout << crr->getValue() << ", ";
@@ -18,7 +18,7 @@ void BaseContainer::print() {
 }
 
 bool BaseContainer::member(int const &x) {
-    Node* crr = _head;
+    Node<int>* crr = _head;
 
     while (crr != nullptr) {
         if (crr->getValue() == x) {
@@ -33,7 +33,7 @@ bool BaseContainer::member(int const &x) {
 
 size_t BaseContainer::getSize() {
     size_t counter = 0;
-    Node* crr = _head;
+    Node<int>* crr = _head;
 
     while (crr != nullptr) {
         counter++;
@@ -44,7 +44,7 @@ size_t BaseContainer::getSize() {
 }
 
 bool BaseContainer::match(Condition condition) {
-    Node* crr = _head;
+    Node<int>* crr = _head;
 
     while (crr != nullptr) {
         if (condition(crr->getValue())) {

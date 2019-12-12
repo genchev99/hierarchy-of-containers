@@ -5,7 +5,7 @@
 #include "List.h"
 
 void List::insert(int value) {
-    _head = new Node(value, nullptr, _head);
+    _head = new Node<int>(value, nullptr, _head);
     if (_head->getNext() != nullptr) {
         _head->getNext()->setPrev(_head);
     }

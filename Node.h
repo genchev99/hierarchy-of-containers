@@ -5,22 +5,22 @@
 #ifndef HIERARCHY_OF_CONTAINERS_NODE_H
 #define HIERARCHY_OF_CONTAINERS_NODE_H
 
-
+template <typename T>
 class Node {
-    int _value;
+    T _value;
     Node* _next;
     Node* _prev;
 public:
-    explicit Node(int value = 0, Node* prev = nullptr, Node* next = nullptr);
+    explicit Node(T value = 0, Node* prev = nullptr, Node* next = nullptr);
 
-    int getValue() const;
-    void setValue(int value);
+    T getValue() const;
+    void setValue(T value);
 
     Node *getNext() const;
     void setNext(Node *next);
 
     Node *getPrev() const;
-    void setPrev(Node *before);
+    void setPrev(Node *prev);
 };
 
 

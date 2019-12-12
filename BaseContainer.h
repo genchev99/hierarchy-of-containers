@@ -14,7 +14,7 @@ using Condition = bool (*)(int);
 
 class BaseContainer {
 protected:
-    Node* _head;
+    Node<int>* _head;
 public:
     BaseContainer();
     virtual void insert(int value) = 0;
