@@ -35,7 +35,8 @@ int main() {
     MasterContainer* masterContainer = new MasterContainer();
 
     /* Reading the file line by line and splitting it into string vector */
-    std::ifstream in("/home/pr3dat0r/FMI_Projects/sdp/hierarchy-of-containers/containers.txt");
+//    std::ifstream in("/home/pr3dat0r/FMI_Projects/sdp/hierarchy-of-containers/containers.txt");
+    std::ifstream in("/home/bg-tv/CLionProjects/hierarchy-of-containers/containers.txt");
     std::vector<std::vector<std::string>> rawContainers;
 
     if (in) {
@@ -77,7 +78,10 @@ int main() {
     masterContainer->addElementToLowestContainer(222);
     masterContainer->addElementToLowestContainer(333);
     std::cout << "Contains 333 " << masterContainer->contains(333) << std::endl;
-    std::cout << "Contains 333 " << masterContainer->matchAny([](const int x) -> bool { return x == 3333; }) << std::endl;
+    std::cout << "Contains 111 " << masterContainer->matchAny([](const int x) -> bool { return x == 111; }) << std::endl;
+    masterContainer->print();
+//    masterContainer->printBackwards();
+    masterContainer->filter([](const int x) -> bool { return x%2 == 0; });
     masterContainer->print();
 
 //    delete(masterContainer);

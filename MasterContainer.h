@@ -22,7 +22,11 @@ public:
 
     void addContainer(BaseContainer* container = nullptr);
     void addElementToLowestContainer(int x);
+    void filter(Condition condition);
+
+    /* Printing methods */
     void print();
+    void printBackwards();
 };
 
 

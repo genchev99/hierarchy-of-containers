@@ -17,10 +17,12 @@ void MasterContainer::addContainer(BaseContainer *container) {
 void MasterContainer::print() {
     MasterNode* crr = _head;
 
+    std::cout << "======================" << std::endl;
     while (crr != nullptr) {
         crr->getContainer()->print();
         crr = crr->getNext();
     }
+    std::cout << "======================" << std::endl;
 }
 
 bool MasterContainer::contains(int x) {
@@ -74,5 +76,26 @@ bool MasterContainer::matchAny(Condition condition) {
     }
 
     return false;
+}
+
+void MasterContainer::filter(Condition condition) {
+    MasterNode* crr = _head;
+
+    while (crr != nullptr) {
+        crr->getContainer()->filter(condition);
+
+        crr = crr->getNext();
+    }
+}
+
+void MasterContainer::printBackwards() {
+    MasterNode* crr = _head;
+
+    std::cout << "======================" << std::endl;
+    while (crr != nullptr) {
+        crr->getContainer()->printBackwards();
+        crr = crr->getNext();
+    }
+    std::cout << "======================" << std::endl;
 }
 

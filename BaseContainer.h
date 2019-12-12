@@ -23,10 +23,13 @@ public:
     bool member(int const& x);
     bool match(Condition condition);
 
+    void filter(Condition condition);
+
     size_t getSize();
 
     /* Printing methods */
     void print();
+    void printBackwards();
 };
 
 

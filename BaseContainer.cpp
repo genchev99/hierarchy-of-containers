@@ -57,3 +57,48 @@ bool BaseContainer::match(Condition condition) {
     return false;
 }
 
+/* Todo call destructors */
+void BaseContainer::filter(Condition condition) {
+    Node* crr = _head;
+
+    while (crr != nullptr) {
+        if (condition(crr->getValue())) {
+//            std::cout << "Hit: " << crr->getValue() << std::endl;
+            if (crr == _head) {
+                _head = _head->getNext();
+                _head->setPrev(nullptr);
+            } else {
+                if (crr->getNext() != nullptr) {
+                    crr->getNext()->setPrev(crr->getPrev());
+                }
+
+                if (crr->getPrev() != nullptr) {
+                    crr->getPrev()->setNext(crr->getNext());
+                }
+
+                if (crr->getPrev() == nullptr && crr->getNext() == nullptr) {
+                    _head = nullptr;
+                }
+            }
+        }
+
+        crr = crr->getNext();
+    }
+}
+
+void BaseContainer::printBackwards() {
+    Node* crr = _head;
+
+    while (crr->getNext() != nullptr) {
+        crr = crr->getNext();
+    }
+    /* At this point crr is pointing to the last element */
+
+    while (crr != nullptr) {
+        std::cout << crr->getValue() << ", ";
+        crr = crr->getPrev();
+    }
+
+    std::cout << std::endl;
+}
+

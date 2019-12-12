@@ -10,11 +10,12 @@ void Queue::insert(int value) {
     } else {
         /* Navigates to the end of the queue and adds the element */
         Node* crr = _head;
+
         while (crr->getNext() != nullptr) {
             crr = crr->getNext();
         }
 
-        crr->setNext(new Node(value));
+        crr->setNext(new Node(value, crr));
     }
 }
 
