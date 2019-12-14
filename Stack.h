@@ -13,6 +13,7 @@
 class Stack: public BaseContainer {
 public:
     Stack();
+
     void insert(int value) override;
     int pop() override;
 };

@@ -12,6 +12,7 @@
 class Queue: public BaseContainer {
 public:
     Queue();
+
     void insert(int value) override;
     int pop() override;
 };

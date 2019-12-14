@@ -102,3 +102,18 @@ void BaseContainer::printBackwards() {
     std::cout << std::endl;
 }
 
+BaseContainer::~BaseContainer() {
+    std::cout << "Base container destructor called!" << std::endl;
+    deleteAllNodes(_head);
+}
+
+void BaseContainer::deleteAllNodes(Node* crr) {
+    if (crr == nullptr) {
+        return;
+    }
+
+    deleteAllNodes(crr->getNext());
+
+    delete crr;
+}
+

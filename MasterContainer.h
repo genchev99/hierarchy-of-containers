@@ -14,12 +14,14 @@ class MasterContainer {
     MasterNode* _head;
 public:
     MasterContainer();
+    ~MasterContainer();
 
     MasterNode* getLowestContainer();
 
     bool contains(int x);
     bool matchAny(Condition condition);
 
+    void deleteAllContainers(MasterNode* crr);
     void addContainer(BaseContainer* container = nullptr);
     void addElementToLowestContainer(int x);
     void filter(Condition condition);

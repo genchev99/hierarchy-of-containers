@@ -29,3 +29,9 @@ Node *Node::getPrev() const {
 void Node::setPrev(Node *before) {
     Node::_prev = before;
 }
+
+Node::~Node() {
+//    std::cout << "Node"
+//    delete _next;
+//    delete _prev;
+}

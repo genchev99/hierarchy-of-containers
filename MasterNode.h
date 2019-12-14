@@ -14,6 +14,7 @@ class MasterNode {
     MasterNode* _next;
 public:
     MasterNode(BaseContainer* baseContainer = nullptr, MasterNode* prev = nullptr, MasterNode* next = nullptr);
+    ~MasterNode();
 
     BaseContainer *getContainer() const;
     void setContainer(BaseContainer *container);

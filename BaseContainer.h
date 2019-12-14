@@ -17,8 +17,12 @@ protected:
     Node* _head;
 public:
     BaseContainer();
+    ~BaseContainer();
+
     virtual void insert(int value) = 0;
     virtual int pop() = 0;
+
+    void deleteAllNodes(Node* crr);
 
     bool member(int const& x);
     bool match(Condition condition);

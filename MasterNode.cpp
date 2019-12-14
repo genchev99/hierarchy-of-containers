@@ -29,3 +29,8 @@ MasterNode *MasterNode::getNext() const {
 void MasterNode::setNext(MasterNode *next) {
     _next = next;
 }
+
+MasterNode::~MasterNode() {
+    std::cout << "Master node destructor called!" << std::endl;
+    delete(_container);
+}

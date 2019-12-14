@@ -17,8 +17,11 @@ int List::pop() {
     if (_head != nullptr) {
         result = _head->getValue();
         _head = _head->getNext();
-        delete(_head->getPrev());
-        _head->setPrev(nullptr);
+
+        if (_head != nullptr) {
+            delete _head->getPrev();
+            _head->setPrev(nullptr);
+        }
     } else {
         /* Todo rework to throw an exception */
         std::cerr << "The structure is empty!" << std::endl;

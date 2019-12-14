@@ -99,3 +99,17 @@ void MasterContainer::printBackwards() {
     std::cout << "======================" << std::endl;
 }
 
+MasterContainer::~MasterContainer() {
+    std::cout << "Master container destructor called!" << std::endl;
+    deleteAllContainers(_head);
+}
+
+void MasterContainer::deleteAllContainers(MasterNode *crr) {
+    if (crr == nullptr) {
+        return;
+    }
+
+    deleteAllContainers(crr->getNext());
+    delete crr;
+}
+

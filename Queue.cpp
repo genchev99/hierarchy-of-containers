@@ -26,6 +26,11 @@ int Queue::pop() {
         result = _head->getValue();
         /* Todo delete old _head */
         _head = _head->getNext();
+
+        if (_head != nullptr) {
+            delete _head->getPrev();
+            _head->setPrev(nullptr);
+        }
     } else {
         /* Todo rework to throw an exception */
         std::cerr << "The structure is empty!" << std::endl;
