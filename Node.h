@@ -12,7 +12,6 @@ class Node {
     Node* _prev;
 public:
     explicit Node(int value = 0, Node* prev = nullptr, Node* next = nullptr);
-    ~Node();
 
     int getValue() const;
     void setValue(int value);
