@@ -29,7 +29,19 @@ std::vector<std::string> split(const std::string & s, char c) {
     return split;
 }
 
-/* Todo add destructors to all of the classes which will fix the memory leaks */
+/* Track on the tasks
+ * 1 - done
+ * 2 - semi done
+ * 3 - done
+ * 4 - done
+ * 5 - done
+ * 6 - done
+ * 7 - done - office PC
+ * 8 - done
+ * 9 -
+ * 10 -
+ * 11 -
+ * */
 
 int main() {
     MasterContainer* masterContainer = new MasterContainer();
@@ -82,6 +94,7 @@ int main() {
     masterContainer->print();
 //    masterContainer->printBackwards();
     masterContainer->filter([](const int x) -> bool { return x%2 == 0; });
+//
     masterContainer->print();
 
     delete masterContainer;

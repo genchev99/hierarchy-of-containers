@@ -24,7 +24,6 @@ int Queue::pop() {
 
     if (_head != nullptr) {
         result = _head->getValue();
-        /* Todo delete old _head */
         _head = _head->getNext();
 
         if (_head != nullptr) {

@@ -17,8 +17,8 @@ int Stack::pop() {
 
     if (_head != nullptr) {
         result = _head->getValue();
-        /* Todo delete the old _head */
         _head = _head->getNext();
+
         if (_head != nullptr) {
             delete _head->getPrev();
             _head->setPrev(nullptr);

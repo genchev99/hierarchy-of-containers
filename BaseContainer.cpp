@@ -63,7 +63,6 @@ void BaseContainer::filter(Condition condition) {
 
     while (crr != nullptr) {
         if (condition(crr->getValue())) {
-//            std::cout << "Hit: " << crr->getValue() << std::endl;
             if (crr == _head) {
                 _head = _head->getNext();
                 _head->setPrev(nullptr);
