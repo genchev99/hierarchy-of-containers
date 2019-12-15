@@ -14,6 +14,7 @@ class Stack: public BaseContainer {
 public:
     Stack();
 
+    std::string stringify() override;
     void insert(int value) override;
     int pop() override;
 };

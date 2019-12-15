@@ -10,6 +10,7 @@
 using Condition = bool (*)(int);
 
 #include <iostream>
+#include <string>
 #include "Node.h"
 
 class BaseContainer {
@@ -20,6 +21,7 @@ public:
     ~BaseContainer();
 
     virtual void insert(int value) = 0;
+    virtual std::string stringify() = 0;
     virtual int pop() = 0;
 
     void deleteAllNodes(Node* crr);
@@ -28,7 +30,7 @@ public:
     bool match(Condition condition);
 
     void filter(Condition condition);
-
+    std::string stringifyValues();
     size_t getSize();
 
     /* Printing methods */

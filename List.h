@@ -10,6 +10,8 @@
 
 class List: public BaseContainer {
 public:
+    std::string stringify() override;
+
     void insert(int value) override;
     int pop() override;
 };

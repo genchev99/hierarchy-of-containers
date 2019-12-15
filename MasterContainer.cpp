@@ -113,3 +113,20 @@ void MasterContainer::deleteAllContainers(MasterNode *crr) {
     delete crr;
 }
 
+void MasterContainer::save(std::string path) {
+    MasterNode* crr = _head;
+    std::ofstream newFile(path, std::ios_base::app);
+
+    if (newFile.is_open()) {
+        while (crr != nullptr) {
+            newFile << crr->getContainer()->stringify() << "\n";
+
+            crr = crr->getNext();
+        }
+    } else {
+        std::cerr << "[ Err ] Unable to handle the file";
+    }
+
+    newFile.close();
+}
+

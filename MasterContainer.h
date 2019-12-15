@@ -8,6 +8,7 @@
 /* Todo make it to use template instead of integers */
 using Condition = bool (*)(int);
 
+#include <fstream>
 #include "MasterNode.h"
 
 class MasterContainer {
@@ -25,7 +26,7 @@ public:
     void addContainer(BaseContainer* container = nullptr);
     void addElementToLowestContainer(int x);
     void filter(Condition condition);
-
+    void save(std::string path);
     /* Printing methods */
     void print();
     void printBackwards();

@@ -32,3 +32,7 @@ int Stack::pop() {
 }
 
 Stack::Stack(): BaseContainer() {}
+
+std::string Stack::stringify() {
+    return "s " + this->stringifyValues();
+}

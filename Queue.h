@@ -13,6 +13,7 @@ class Queue: public BaseContainer {
 public:
     Queue();
 
+    std::string stringify() override;
     void insert(int value) override;
     int pop() override;
 };

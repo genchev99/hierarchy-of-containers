@@ -39,3 +39,7 @@ int Queue::pop() {
 }
 
 Queue::Queue(): BaseContainer() {}
+
+std::string Queue::stringify() {
+    return "q " + this->stringifyValues();
+}

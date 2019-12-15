@@ -116,3 +116,20 @@ void BaseContainer::deleteAllNodes(Node* crr) {
     delete crr;
 }
 
+std::string BaseContainer::stringifyValues() {
+    std::string res;
+    Node* crr = _head;
+
+    while (crr != nullptr) {
+        res += std::to_string(crr->getValue());
+        if (crr->getNext() != nullptr) {
+            res += " ";
+        }
+
+        crr = crr->getNext();
+    }
+
+    return res;
+}
+
+

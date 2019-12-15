@@ -29,3 +29,7 @@ int List::pop() {
 
     return result;
 }
+
+std::string List::stringify() {
+    return "d " + this->stringifyValues();
+}
