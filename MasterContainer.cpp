@@ -130,3 +130,23 @@ void MasterContainer::save(std::string path) {
     newFile.close();
 }
 
+void MasterContainer::shuffle() {
+    MasterNode* crr = _head;
+
+    while (crr != nullptr) {
+        crr->getContainer()->shuffle();
+
+        crr = crr->getNext();
+    }
+}
+
+void MasterContainer::sort() {
+    MasterNode* crr = _head;
+
+    while (crr != nullptr) {
+        crr->getContainer()->sort();
+
+        crr = crr->getNext();
+    }
+}
+

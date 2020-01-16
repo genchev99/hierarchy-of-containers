@@ -36,7 +36,7 @@ std::vector<std::string> split(const std::string & s, char c) {
  * 4 - done
  * 5 - done
  * 6 - done
- * 7 - done - office PC
+ * 7 - done
  * 8 - done
  * 9 -
  * 10 -
@@ -89,12 +89,15 @@ int main() {
     masterContainer->addElementToLowestContainer(111);
     masterContainer->addElementToLowestContainer(222);
     masterContainer->addElementToLowestContainer(333);
-    std::cout << "Contains 333 " << masterContainer->contains(333) << std::endl;
-    std::cout << "Contains 111 " << masterContainer->matchAny([](const int x) -> bool { return x == 111; }) << std::endl;
+//    std::cout << "Contains 333 " << masterContainer->contains(333) << std::endl;
+//    std::cout << "Contains 111 " << masterContainer->matchAny([](const int x) -> bool { return x == 111; }) << std::endl;
     masterContainer->print();
 //    masterContainer->printBackwards();
-    masterContainer->filter([](const int x) -> bool { return x%2 == 0; });
+//    masterContainer->filter([](const int x) -> bool { return x%2 == 0; });
 //
+    masterContainer->shuffle();
+    masterContainer->print();
+    masterContainer->sort();
     masterContainer->print();
     masterContainer->save("132");
     delete masterContainer;

@@ -11,6 +11,7 @@ using Condition = bool (*)(int);
 
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "Node.h"
 
 class BaseContainer {
@@ -30,7 +31,11 @@ public:
     bool match(Condition condition);
 
     void filter(Condition condition);
+    void shuffle();
+    void sort();
+
     std::string stringifyValues();
+
     size_t getSize();
 
     /* Printing methods */

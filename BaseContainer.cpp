@@ -2,6 +2,7 @@
 // Created by bg-tv on 3.12.19 г..
 //
 
+#include <vector>
 #include "BaseContainer.h"
 
 BaseContainer::BaseContainer(): _head(nullptr) {}
@@ -130,6 +131,34 @@ std::string BaseContainer::stringifyValues() {
     }
 
     return res;
+}
+
+void BaseContainer::shuffle() {
+    std::vector<int> helper;
+
+    while (_head != nullptr) {
+        helper.push_back(this->pop());
+    }
+
+    std::random_shuffle(helper.begin(), helper.end());
+
+    for (auto item : helper) {
+        this->insert(item);
+    }
+}
+
+void BaseContainer::sort() {
+    std::vector<int> helper;
+
+    while (_head != nullptr) {
+        helper.push_back(this->pop());
+    }
+
+    std::sort(helper.begin(), helper.end());
+
+    for (auto item : helper) {
+        this->insert(item);
+    }
 }
 
 

@@ -26,6 +26,8 @@ public:
     void addContainer(BaseContainer* container = nullptr);
     void addElementToLowestContainer(int x);
     void filter(Condition condition);
+    void shuffle();
+    void sort();
     void save(std::string path);
     /* Printing methods */
     void print();
