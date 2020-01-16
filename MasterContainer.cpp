@@ -157,6 +157,16 @@ MasterContainer::AscendingIterator MasterContainer::end() {
     return AscendingIterator(this, -1);
 }
 
+MasterContainer::AscendingIterator MasterContainer::first(int elem) {
+    for (AscendingIterator it = this->begin(); it != this->end(); ++it) {
+        if (*it == elem) {
+            return it;
+        }
+    }
+
+    return this->end();
+}
+
 
 void MasterContainer::AscendingIterator::operator++() {
     ++baseIterators[current];
@@ -187,7 +197,6 @@ MasterContainer::AscendingIterator::AscendingIterator(MasterContainer * owner, i
 
     if (crrInd != -1) {
         next();
-        std::cout << *baseIterators[current] << std::endl;
     }
 }
 

@@ -54,6 +54,7 @@ public:
 
     AscendingIterator begin();
     AscendingIterator end();
+    AscendingIterator first(int elem);
 };
 
 

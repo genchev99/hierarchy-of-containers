@@ -104,6 +104,12 @@ int main() {
     for (MasterContainer::AscendingIterator it = masterContainer->begin(); it != masterContainer->end(); ++it) {
         std::cout << *it << ", ";
     }
+    std::cout << std::endl;
+
+    for (MasterContainer::AscendingIterator it = masterContainer->first(12312312); it != masterContainer->end(); ++it) {
+        std::cout << *it << ", ";
+    }
+    std::cout << std::endl;
 
     delete masterContainer;
 
