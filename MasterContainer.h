@@ -9,6 +9,7 @@
 using Condition = bool (*)(int);
 
 #include <fstream>
+#include <vector>
 #include "MasterNode.h"
 
 class MasterContainer {
@@ -32,7 +33,29 @@ public:
     /* Printing methods */
     void print();
     void printBackwards();
+
+    /* Iterators */
+    class AscendingIterator {
+        std::vector<BaseContainer::AscendingIterator> baseIterators;
+        int current;
+        MasterContainer * owner;
+
+        AscendingIterator(MasterContainer * owner, int crrInd);
+    public:
+        friend class MasterContainer;
+
+        void next();
+
+        void operator++();
+        int operator*();
+
+        bool operator!=(const AscendingIterator& other) const;
+    };
+
+    AscendingIterator begin();
+    AscendingIterator end();
 };
+
 
 
 #endif //HIERARCHY_OF_CONTAINERS_MASTERCONTAINER_H

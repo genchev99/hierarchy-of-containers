@@ -100,6 +100,11 @@ int main() {
     masterContainer->print();
     masterContainer->sort();
     masterContainer->print();
+
+    for (MasterContainer::AscendingIterator it = masterContainer->begin(); it != masterContainer->end(); ++it) {
+        std::cout << *it << ", ";
+    }
+
     delete masterContainer;
 
     return 0;

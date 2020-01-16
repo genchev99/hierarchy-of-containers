@@ -41,7 +41,28 @@ public:
     /* Printing methods */
     void print();
     void printBackwards();
+
+    /* Iterators */
+    class AscendingIterator {
+        Node* crr;
+    public:
+        friend class BaseContainer;
+
+        void operator++();
+        int operator*();
+
+        bool operator!=(const AscendingIterator& other) const;
+
+        AscendingIterator(Node *head, BaseContainer *owner);
+        AscendingIterator(const AscendingIterator& other);
+
+        BaseContainer* owner;
+    };
+
+    AscendingIterator begin();
+    AscendingIterator end();
 };
+
 
 
 #endif //HIERARCHY_OF_CONTAINERS_BASECONTAINER_H

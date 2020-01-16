@@ -103,7 +103,6 @@ void BaseContainer::printBackwards() {
 }
 
 BaseContainer::~BaseContainer() {
-    std::cout << "Base container destructor called!" << std::endl;
     deleteAllNodes(_head);
 }
 
@@ -165,4 +164,29 @@ void BaseContainer::sort() {
     }
 }
 
+BaseContainer::AscendingIterator BaseContainer::end() {
+    return AscendingIterator(nullptr, this);
+}
 
+BaseContainer::AscendingIterator BaseContainer::begin() {
+    return AscendingIterator(_head, this);
+}
+
+BaseContainer::AscendingIterator::AscendingIterator(Node *head, BaseContainer *const owner) : crr(head), owner(owner) {}
+
+void BaseContainer::AscendingIterator::operator++() {
+    crr = crr->getNext();
+}
+
+int BaseContainer::AscendingIterator::operator*() {
+    return crr->getValue();
+}
+
+bool BaseContainer::AscendingIterator::operator!=(const BaseContainer::AscendingIterator &other) const {
+    return crr != other.crr;
+}
+
+BaseContainer::AscendingIterator::AscendingIterator(const AscendingIterator &other) {
+    this->crr = other.crr;
+    this->owner = other.owner;
+}

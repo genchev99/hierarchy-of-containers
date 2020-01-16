@@ -100,7 +100,6 @@ void MasterContainer::printBackwards() {
 }
 
 MasterContainer::~MasterContainer() {
-    std::cout << "Master container destructor called!" << std::endl;
     deleteAllContainers(_head);
 }
 
@@ -150,3 +149,65 @@ void MasterContainer::sort() {
     }
 }
 
+MasterContainer::AscendingIterator MasterContainer::begin() {
+    return AscendingIterator(this, 0);
+}
+
+MasterContainer::AscendingIterator MasterContainer::end() {
+    return AscendingIterator(this, -1);
+}
+
+
+void MasterContainer::AscendingIterator::operator++() {
+    ++baseIterators[current];
+    next();
+}
+
+bool MasterContainer::AscendingIterator::operator!=(const MasterContainer::AscendingIterator &other) const {
+    return current != other.current || baseIterators[current] != other.baseIterators[current];
+}
+
+int MasterContainer::AscendingIterator::operator*() {
+    return *baseIterators[current];
+}
+
+MasterContainer::AscendingIterator::AscendingIterator(MasterContainer * owner, int crrInd = 0)
+        : current(crrInd), owner(owner) {
+    MasterNode* crr = owner->_head;
+
+    while (crr != nullptr) {
+        if (crrInd == -1) {
+            baseIterators.push_back(crr->getContainer()->end());
+            crr = crr->getNext();
+        } else {
+            baseIterators.push_back(crr->getContainer()->begin());
+            crr = crr->getNext();
+        }
+    }
+
+    if (crrInd != -1) {
+        next();
+        std::cout << *baseIterators[current] << std::endl;
+    }
+}
+
+void MasterContainer::AscendingIterator::next() {
+    int min = -1;
+    int counter = 0;
+
+    for (int i = 0; i < baseIterators.size(); ++i) {
+        if (baseIterators[i] != BaseContainer::AscendingIterator(nullptr, baseIterators[i].owner)) {
+            if (min == -1) {
+                min = i;
+            }
+
+            if (*baseIterators[min] > *baseIterators[i]) {
+                min = i;
+            }
+        } else {
+            counter++;
+        }
+    }
+
+    current = min;
+}

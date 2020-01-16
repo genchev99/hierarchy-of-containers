@@ -31,6 +31,5 @@ void MasterNode::setNext(MasterNode *next) {
 }
 
 MasterNode::~MasterNode() {
-    std::cout << "Master node destructor called!" << std::endl;
     delete(_container);
 }
