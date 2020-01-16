@@ -43,3 +43,17 @@ Queue::Queue(): BaseContainer() {}
 std::string Queue::stringify() {
     return "q " + this->stringifyValues();
 }
+
+void Queue::sort() {
+    std::vector<int> helper;
+
+    while (_head != nullptr) {
+        helper.push_back(this->pop());
+    }
+
+    std::sort(helper.begin(), helper.end());
+
+    for (auto item : helper) {
+        this->insert(item);
+    }
+}

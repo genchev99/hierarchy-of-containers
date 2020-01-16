@@ -32,7 +32,7 @@ public:
 
     void filter(Condition condition);
     void shuffle();
-    void sort();
+    virtual void sort(); /* Because of the implementation of the stack it's reversed */
 
     std::string stringifyValues();
 

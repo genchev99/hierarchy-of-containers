@@ -147,6 +147,10 @@ void BaseContainer::shuffle() {
     }
 }
 
+bool comparatorFunc(int a, int b) {
+    return (a > b);
+}
+
 void BaseContainer::sort() {
     std::vector<int> helper;
 
@@ -154,7 +158,7 @@ void BaseContainer::sort() {
         helper.push_back(this->pop());
     }
 
-    std::sort(helper.begin(), helper.end());
+    std::sort(helper.begin(), helper.end(), comparatorFunc);
 
     for (auto item : helper) {
         this->insert(item);
