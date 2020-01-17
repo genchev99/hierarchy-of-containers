@@ -174,6 +174,10 @@ void MasterContainer::AscendingIterator::operator++() {
 }
 
 bool MasterContainer::AscendingIterator::operator!=(const MasterContainer::AscendingIterator &other) const {
+    if (current == -1 || other.current == -1) { /* No invalid read */
+        return current != other.current;
+    }
+
     return current != other.current || baseIterators[current] != other.baseIterators[current];
 }
 

@@ -90,11 +90,11 @@ int main() {
     masterContainer->addElementToLowestContainer(111);
     masterContainer->addElementToLowestContainer(222);
     masterContainer->addElementToLowestContainer(333);
-//    std::cout << "Contains 333 " << masterContainer->contains(333) << std::endl;
-//    std::cout << "Contains 111 " << masterContainer->matchAny([](const int x) -> bool { return x == 111; }) << std::endl;
+    std::cout << "Contains 333 " << masterContainer->contains(333) << std::endl;
+    std::cout << "Contains 111 " << masterContainer->matchAny([](const int x) -> bool { return x == 111; }) << std::endl;
     masterContainer->print();
 //    masterContainer->printBackwards();
-//    masterContainer->filter([](const int x) -> bool { return x%2 == 0; });
+    masterContainer->filter([](const int x) -> bool { return x%2 == 0; });
 //
     masterContainer->shuffle();
     masterContainer->print();
@@ -106,7 +106,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    for (MasterContainer::AscendingIterator it = masterContainer->first(12312312); it != masterContainer->end(); ++it) {
+    for (MasterContainer::AscendingIterator it = masterContainer->first(15); it != masterContainer->end(); ++it) {
         std::cout << *it << ", ";
     }
     std::cout << std::endl;
