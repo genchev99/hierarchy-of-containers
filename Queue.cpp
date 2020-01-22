@@ -57,3 +57,7 @@ void Queue::sort() {
         this->insert(item);
     }
 }
+
+char Queue::type() {
+    return 'Q';
+}

@@ -49,7 +49,7 @@ int main() {
     /* Reading the file line by line and splitting it into string vector */
 //    std::ifstream in("/home/pr3dat0r/FMI_Projects/sdp/hierarchy-of-containers/containers.txt");
 //    std::ifstream in("/home/bg-tv/CLionProjects/hierarchy-of-containers/containers.txt");
-    std::ifstream in("/home/bg-tv/Desktop/hierarchy-of-containers/containers.txt");
+    std::ifstream in("/home/bg-tv/Documents/hierarchy-of-containers/containers.txt");
     std::vector<std::vector<std::string>> rawContainers;
 
     if (in) {
@@ -87,19 +87,27 @@ int main() {
 
         masterContainer->addContainer(baseContainer);
     }
+    masterContainer->print();
     masterContainer->addElementToLowestContainer(111);
     masterContainer->addElementToLowestContainer(222);
     masterContainer->addElementToLowestContainer(333);
+    masterContainer->addElementToLowestContainer(444);
     std::cout << "Contains 333 " << masterContainer->contains(333) << std::endl;
     std::cout << "Contains 111 " << masterContainer->matchAny([](const int x) -> bool { return x == 111; }) << std::endl;
     masterContainer->print();
 //    masterContainer->printBackwards();
-    masterContainer->filter([](const int x) -> bool { return x%2 == 0; });
 //
+    std::cout << "Shuffle" << std::endl;
     masterContainer->shuffle();
     masterContainer->print();
+    std::cout << "Sort" << std::endl;
     masterContainer->sort();
     masterContainer->print();
+
+    std::cout << "Filter" << std::endl;
+    masterContainer->filter([](const int x) -> bool { return x%2 == 0; });
+    masterContainer->print();
+
 
     for (MasterContainer::AscendingIterator it = masterContainer->begin(); it != masterContainer->end(); ++it) {
         std::cout << *it << ", ";

@@ -21,6 +21,7 @@ public:
     BaseContainer();
     ~BaseContainer();
 
+    virtual char type() = 0;
     virtual void insert(int value) = 0;
     virtual std::string stringify() = 0;
     virtual int pop() = 0;

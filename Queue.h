@@ -14,6 +14,7 @@ class Queue: public BaseContainer {
 public:
     Queue();
 
+    char type() override;
     void sort();
     std::string stringify() override;
     void insert(int value) override;

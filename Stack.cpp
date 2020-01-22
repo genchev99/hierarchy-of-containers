@@ -36,3 +36,7 @@ Stack::Stack(): BaseContainer() {}
 std::string Stack::stringify() {
     return "s " + this->stringifyValues();
 }
+
+char Stack::type() {
+    return 'S';
+}

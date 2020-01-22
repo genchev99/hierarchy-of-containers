@@ -33,3 +33,7 @@ int List::pop() {
 std::string List::stringify() {
     return "d " + this->stringifyValues();
 }
+
+char List::type() {
+    return 'D';
+}

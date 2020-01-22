@@ -10,6 +10,7 @@ BaseContainer::BaseContainer(): _head(nullptr) {}
 void BaseContainer::print() {
     Node* crr = _head;
 
+    std::cout << this->type() << " => ";
     while (crr != nullptr) {
         std::cout << crr->getValue() << ", ";
         crr = crr->getNext();

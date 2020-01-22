@@ -206,7 +206,6 @@ MasterContainer::AscendingIterator::AscendingIterator(MasterContainer * owner, i
 
 void MasterContainer::AscendingIterator::next() {
     int min = -1;
-    int counter = 0;
 
     for (int i = 0; i < baseIterators.size(); ++i) {
         if (baseIterators[i] != BaseContainer::AscendingIterator(nullptr, baseIterators[i].owner)) {
@@ -217,8 +216,6 @@ void MasterContainer::AscendingIterator::next() {
             if (*baseIterators[min] > *baseIterators[i]) {
                 min = i;
             }
-        } else {
-            counter++;
         }
     }
 
